@@ -5,11 +5,44 @@
 $(function () {
 
   setInterval(function () {
-    const now = dayjs();
-    $("#currentDay").text(now.format("MMMM D, YYYY"));
-    $("#currenttime").text(now.format("h:mm:ss A"));
+   const now = dayjs();
+   var day =  $("#currentDay").text(now.format("MMMM D, YYYY"));
+   var time = $("#currenttime").text(now.format("h:mm:ss A"));
   }, 1000);
+  const now = dayjs();
+  var day =  $("#currentDay").text(now.format("MMMM D, YYYY"));
+  var time = $("#currenttime").text(now.format("h:mm:ss A"));
+  var timevalue = $("#currenttime").html();
+  var timevaluestringify = JSON.stringify(timevalue);
+  var boxtime = $(".col-2");
+  function obtaintime(ev) {
+    var val = ev.html();
+    var valstring = JSON.stringify(val);
+    console.log(valstring[1]);
+    return valstring[1];
+  };
+  
+  obtaintime(boxtime);
+  console.log(timevalue[0]);
+  if (timevaluestringify[0] == obtaintime(boxtime)) {
+    $(".row").removeClass('row time-block past').addClass('row time-block present');
+    
+  }
+ // $(".row").on('click', () => {
+   // $('.row').addClass('row time-block future');
+   // $('.row').removeClass('row time-block past');
+   // $(".row").css("color", "rgb(107, 207, 104)");
+ // }
+   // );
 
+  //create a for iteration that changes each div[i]class value based on time of currenttime.text h for 12am-11pm
+
+
+  //$('#MyElement').addClass('MyClass');
+
+
+
+//if ( $('#MyElement').hasClass('MyClass') )
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
