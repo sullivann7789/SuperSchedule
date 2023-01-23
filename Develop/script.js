@@ -15,6 +15,7 @@ $(function () {
   var timevalue = $("#currenttime").html();
   var timevaluestringify = JSON.stringify(timevalue);
   var boxtime = $(".col-2");
+  console.log(dayjs().format('h'));
   function obtaintime(ev) {
     var val = ev.html();
     var valstring = JSON.stringify(val);
@@ -24,36 +25,45 @@ $(function () {
   
  obtaintime(boxtime);
   //console.log(timevalue[0]);
-
+  var scheduletime = $(".hour")
+  console.log(dayjs().hour());
   var magic = document.querySelectorAll('.row')
    for (let i = 0; i < 24; i++) {
    //console.log($('.row')[4])
    
    //console.log($('#hour')[i]);
-
-   console.log(magic[i]);
-    if (timevaluestringify[0] == obtaintime(boxtime)) {
-    $(".row").removeClass('row time-block past').addClass('row time-block present');
-    
+   console.log($(magic[i]))
+   console.log(parseFloat(magic[i].childNodes[1].innerHTML));
+   if (parseFloat(magic[i].childNodes[1].innerHTML) > dayjs().format('h')) {
+    $(magic[i]).removeClass('row time-block past');
+    $(magic[i]).addClass('row time-block future');
+    console.log($(magic[i]))
+  } else if (parseFloat(magic[i].childNodes[1].innerHTML) == dayjs().format('h')) {
+    $(magic[i]).removeClass('row time-block past');
+    $(magic[i]).addClass('row time-block present');
+    console.log($(magic[i]))
+  } else if (parseFloat(magic[i].childNodes[1].innerHTML) < dayjs().format('h')) {
+    $(magic[i]).removeClass('row time-block future')
+    $(magic[i]).addClass('row time-block past')
   }
+
+
+
 
    magic[i].addEventListener('click', function(){
     if ($(this).hasClass('row time-block future')) {
-      $('.btn').addEventListener('click', function (ev){
-        ev.preventDefault();
-        let input = $('.col').html();
-        localStorage.setItem('user-sch-item', input);
+      let save = $('button');
+      console.log(save)
+      //save[i].addEventListener('click', function (){
+        let input = $('.col-8')[i];
+        console.log(input.html());
+        localStorage.setItem('user-sch-item', input.html());
         var storedinput = localStorage.getItem('user-sch-item');
-        input = storedinput;
-      })
-      $(this).addClass('row time-block future');
-  } else{
-      $(this).removeClass('row time-block future');
-      $(this).addClass('row time-block past');
+      }
+      
     }
-   });
+    )
 
-  }
 
    //$(".row").css("color", "rgb(107, 207, 104)");
    console.log($('.row'));
@@ -89,4 +99,4 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-})
+}})
