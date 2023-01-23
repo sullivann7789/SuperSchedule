@@ -22,27 +22,44 @@ $(function () {
     return valstring[1];
   };
   
-  obtaintime(boxtime);
-  console.log(timevalue[0]);
-  if (timevaluestringify[0] == obtaintime(boxtime)) {
-    $(".row").removeClass('row time-block past').addClass('row time-block present');
+ obtaintime(boxtime);
+  //console.log(timevalue[0]);
+  //if (timevaluestringify[0] == obtaintime(boxtime)) {
+    //$(".row").removeClass('row time-block past').addClass('row time-block present');
     
+  //}
+  var magic = document.querySelectorAll('.row')
+   for (let i = 0; i < 24; i++) {
+   //console.log($('.row')[4])
+   
+   //console.log($('#hour')[i]);
+
+   console.log(magic[i]);
+
+
+   magic[i].addEventListener('click', function(){
+    $(this).removeClass('row time-block past');
+    $(this).addClass('row time-block future');
+   });
+
   }
- // $(".row").on('click', () => {
-   // $('.row').addClass('row time-block future');
-   // $('.row').removeClass('row time-block past');
-   // $(".row").css("color", "rgb(107, 207, 104)");
- // }
-   // );
+
+   //$(".row").css("color", "rgb(107, 207, 104)");
+   console.log($('.row'));
+  //}
+
+
+  
+  
 
   //create a for iteration that changes each div[i]class value based on time of currenttime.text h for 12am-11pm
 
 
-  //$('#MyElement').addClass('MyClass');
+  //$('#hour').addClass('row time-block future');
 
 
 
-//if ( $('#MyElement').hasClass('MyClass') )
+//if ( $('#hour').hasClass('') )
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
