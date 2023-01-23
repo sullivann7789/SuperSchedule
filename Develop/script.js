@@ -24,10 +24,7 @@ $(function () {
   
  obtaintime(boxtime);
   //console.log(timevalue[0]);
-  //if (timevaluestringify[0] == obtaintime(boxtime)) {
-    //$(".row").removeClass('row time-block past').addClass('row time-block present');
-    
-  //}
+
   var magic = document.querySelectorAll('.row')
    for (let i = 0; i < 24; i++) {
    //console.log($('.row')[4])
@@ -35,11 +32,25 @@ $(function () {
    //console.log($('#hour')[i]);
 
    console.log(magic[i]);
-
+    if (timevaluestringify[0] == obtaintime(boxtime)) {
+    $(".row").removeClass('row time-block past').addClass('row time-block present');
+    
+  }
 
    magic[i].addEventListener('click', function(){
-    $(this).removeClass('row time-block past');
-    $(this).addClass('row time-block future');
+    if ($(this).hasClass('row time-block future')) {
+      $('.btn').addEventListener('click', function (ev){
+        ev.preventDefault();
+        let input = $('.col').html();
+        localStorage.setItem('user-sch-item', input);
+        var storedinput = localStorage.getItem('user-sch-item');
+        input = storedinput;
+      })
+      $(this).addClass('row time-block future');
+  } else{
+      $(this).removeClass('row time-block future');
+      $(this).addClass('row time-block past');
+    }
    });
 
   }
