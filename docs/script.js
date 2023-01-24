@@ -58,8 +58,8 @@ $(function () {
         let input = $('.col-8')[i];
         console.log(input.value);
         localStorage.setItem('user-sch-item', JSON.stringify(input.value));
-        var storedinput = JSON.parse(localStorage.getItem('user-sch-item'));
-        storedinput = input.value;
+        var storedinput = localStorage.getItem('user-sch-item');
+        input.value = storedinput;
       }
       
     }
