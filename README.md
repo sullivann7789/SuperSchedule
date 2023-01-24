@@ -1,2 +1,0 @@
-# SuperSchedule
-SuperSchedule by Noah
