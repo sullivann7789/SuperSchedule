@@ -56,9 +56,10 @@ $(function () {
       console.log(save)
       //save[i].addEventListener('click', function (){
         let input = $('.col-8')[i];
-        console.log(input.html());
-        localStorage.setItem('user-sch-item', input.html());
-        var storedinput = localStorage.getItem('user-sch-item');
+        console.log(input.value);
+        localStorage.setItem('user-sch-item', JSON.stringify(input.value));
+        var storedinput = JSON.parse(localStorage.getItem('user-sch-item'));
+        storedinput = input.value;
       }
       
     }
