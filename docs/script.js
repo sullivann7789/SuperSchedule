@@ -83,14 +83,14 @@ $(function () {
       
       //save[i].addEventListener('click', function (){
         let input = $('.col-8')
-        answerindex[i] = input[i].value;
+        answerindex[i] = input[i].innerHTML;
         console.log(answerindex);
         console.log(input);
         var storesched = localStorage.setItem('user-sch-item', JSON.stringify(answerindex));
         var storedinput = localStorage.getItem('user-sch-item');
         var returnstorage = JSON.parse(storedinput);
         console.log(returnstorage[i]);
-        input[i].value = returnstorage[i];
+        input[i].innerHTML = returnstorage[i];
         console.log(JSON.parse(storedinput));
      // $(['data-time-row=11']) 
 
