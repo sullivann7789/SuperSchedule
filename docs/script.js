@@ -48,18 +48,25 @@ $(function () {
   }
 
 
+  let save = $('button');
+  console.log(save)
+  answerindex = [];
 
-
-   magic[i].addEventListener('click', function(){
-    if ($(this).hasClass('row time-block future')) {
+   save[i].addEventListener('click', function(){
+    if ($(magic[i]).hasClass('row time-block future')) {
       let save = $('button');
       console.log(save)
+      
       //save[i].addEventListener('click', function (){
-        let input = $('.col-8')[i];
-        console.log(input.value);
-        localStorage.setItem('user-sch-item', JSON.stringify(input.value));
+        let input = $('.col-8')
+        answerindex.push(input[i].value);
+        console.log(answerindex);
+        console.log(input);
+        var storesched = localStorage.setItem('user-sch-item', answerindex);
         var storedinput = localStorage.getItem('user-sch-item');
         input.value = storedinput;
+     // $(['data-time-row=11']) 
+
       }
       
     }
@@ -100,4 +107,8 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-}})
+}
+
+
+
+})
