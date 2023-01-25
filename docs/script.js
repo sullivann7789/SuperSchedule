@@ -46,8 +46,12 @@ $(function () {
     $(magic[i]).removeClass('row time-block future')
     $(magic[i]).addClass('row time-block past')
   }
+}
+for (let i = 0; i < 24; i++) {
 
 
+
+  let input = $('.col-8')
   let save = $('button');
   console.log(save)
   answerindex = {
@@ -82,23 +86,23 @@ $(function () {
       console.log(save)
       
       //save[i].addEventListener('click', function (){
-        let input = $('.col-8')
+        
         answerindex[i] = input[i].innerHTML;
         console.log(answerindex);
         console.log(input);
         var storesched = localStorage.setItem('user-sch-item', JSON.stringify(answerindex));
-        var storedinput = localStorage.getItem('user-sch-item');
-        var returnstorage = JSON.parse(storedinput);
-        console.log(returnstorage[i]);
-        input[i].innerHTML = returnstorage[i];
-        console.log(JSON.parse(storedinput));
+
      // $(['data-time-row=11']) 
 
       }
     }
     )
 
-
+    var storedinput = localStorage.getItem('user-sch-item');
+    var returnstorage = JSON.parse(storedinput);
+    console.log(returnstorage[i]);
+    input[i].innerHTML = returnstorage[i];
+    console.log(JSON.parse(storedinput));
 
    //$(".row").css("color", "rgb(107, 207, 104)");
    console.log($('.row'));
