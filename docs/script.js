@@ -88,7 +88,9 @@ $(function () {
         console.log(input);
         var storesched = localStorage.setItem('user-sch-item', JSON.stringify(answerindex));
         var storedinput = localStorage.getItem('user-sch-item');
-        input.value = JSON.parse(storedinput);
+        var returnstorage = JSON.parse(storedinput);
+        console.log(returnstorage[i]);
+        input[i].value = returnstorage[i];
         console.log(JSON.parse(storedinput));
      // $(['data-time-row=11']) 
 
