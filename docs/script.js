@@ -87,7 +87,7 @@ for (let i = 0; i < 24; i++) {
       
       //save[i].addEventListener('click', function (){
         
-        answerindex[i] = input[i].innerHTML;
+        answerindex[i] = input[i].value;
         console.log(answerindex);
         console.log(input);
         var storesched = localStorage.setItem('user-sch-item', JSON.stringify(answerindex));
@@ -101,7 +101,7 @@ for (let i = 0; i < 24; i++) {
     var storedinput = localStorage.getItem('user-sch-item');
     var returnstorage = JSON.parse(storedinput);
     console.log(returnstorage[i]);
-    input[i].innerHTML = returnstorage[i];
+    input[i].value = returnstorage[i];
     console.log(JSON.parse(storedinput));
 
    //$(".row").css("color", "rgb(107, 207, 104)");
