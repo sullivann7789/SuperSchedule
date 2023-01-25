@@ -86,13 +86,13 @@ $(function () {
         answerindex[i] = input[i].value;
         console.log(answerindex);
         console.log(input);
-        var storesched = localStorage.setItem('user-sch-item', answerindex);
+        var storesched = localStorage.setItem('user-sch-item', JSON.stringify(answerindex));
         var storedinput = localStorage.getItem('user-sch-item');
-        input.value = storedinput;
+        input.value = JSON.parse(storedinput);
+        console.log(JSON.parse(storedinput));
      // $(['data-time-row=11']) 
 
       }
-      
     }
     )
 
