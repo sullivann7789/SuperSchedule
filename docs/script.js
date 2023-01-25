@@ -50,8 +50,32 @@ $(function () {
 
   let save = $('button');
   console.log(save)
-  answerindex = [];
-
+  answerindex = {
+    0: '',
+    1: '',
+    2: '',
+    3: '',
+    4: '',
+    5: '',
+    6: '',
+    7: '',
+    8: '',
+    9: '',
+    10: '',
+    11: '',
+    12: '',
+    13: '',
+    14: '',
+    15: '',
+    16: '',
+    17: '',
+    18: '',
+    19: '',
+    20: '',
+    21: '',
+    22: '',
+    23: ''
+  }
    save[i].addEventListener('click', function(){
     if ($(magic[i]).hasClass('row time-block future')) {
       let save = $('button');
@@ -59,7 +83,7 @@ $(function () {
       
       //save[i].addEventListener('click', function (){
         let input = $('.col-8')
-        answerindex.push(input[i].value);
+        answerindex[i] = input[i].value;
         console.log(answerindex);
         console.log(input);
         var storesched = localStorage.setItem('user-sch-item', answerindex);
@@ -71,6 +95,7 @@ $(function () {
       
     }
     )
+
 
 
    //$(".row").css("color", "rgb(107, 207, 104)");
