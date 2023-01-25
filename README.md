@@ -32,3 +32,6 @@ Beyond the API's and their functions, the following code was used:
 - JSON.parse and stringify
 - setInterval function which creates a live-updating clock
 - and more
+
+# Website URL:
+https://sullivann7789.github.io/SuperSchedule/
