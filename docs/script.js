@@ -15,7 +15,7 @@ $(function () {
   var timevalue = $("#currenttime").html();
   var timevaluestringify = JSON.stringify(timevalue);
   var boxtime = $(".col-2");
-  console.log(dayjs().format('h'));
+  console.log(dayjs().format('H'));
   function obtaintime(ev) {
     var val = ev.html();
     var valstring = JSON.stringify(val);
@@ -29,23 +29,24 @@ $(function () {
   console.log(dayjs().hour());
   var magic = document.querySelectorAll('.row')
    for (let i = 0; i < 24; i++) {
+    var idnumber = document.getElementById(i);
+    console.log(idnumber.id);
    //console.log($('.row')[4])
-   
    //console.log($('#hour')[i]);
-   console.log($(magic[i]))
+   console.log($(magic[i].id))
    console.log(parseFloat(magic[i].childNodes[1].innerHTML));
-   if (parseFloat(magic[i].childNodes[1].innerHTML) > dayjs().format('h')) {
+   if (idnumber.id > dayjs().hour()) {
     $(magic[i]).removeClass('row time-block past');
     $(magic[i]).addClass('row time-block future');
     console.log($(magic[i]))
-  } else if (parseFloat(magic[i].childNodes[1].innerHTML) == dayjs().format('h')) {
+  } else if (idnumber.id == dayjs().hour()) {
     $(magic[i]).removeClass('row time-block past');
     $(magic[i]).addClass('row time-block present');
     console.log($(magic[i]))
-  } else if (parseFloat(magic[i].childNodes[1].innerHTML) < dayjs().format('h')) {
+  } else if (idnumber.id < dayjs().hour()) {
     $(magic[i]).removeClass('row time-block future')
     $(magic[i]).addClass('row time-block past')
-  }
+ }
 }
 for (let i = 0; i < 24; i++) {
 
@@ -81,7 +82,6 @@ for (let i = 0; i < 24; i++) {
     23: ''
   }
    save[i].addEventListener('click', function(){
-    if ($(magic[i]).hasClass('row time-block future')) {
       let save = $('button');
       console.log(save)
       
@@ -98,8 +98,6 @@ for (let i = 0; i < 24; i++) {
         console.log(JSON.parse(storedinput));
 
      // $(['data-time-row=11']) 
-
-      }
     }
     )
     var storedinput = localStorage.getItem('user-sch-item');
