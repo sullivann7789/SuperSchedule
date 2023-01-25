@@ -102,7 +102,10 @@ for (let i = 0; i < 24; i++) {
       }
     }
     )
-
+    var storedinput = localStorage.getItem('user-sch-item');
+    var returnstorage = JSON.parse(storedinput);
+    console.log(returnstorage[i]);
+    input[i].value = returnstorage[i];
 
 
    //$(".row").css("color", "rgb(107, 207, 104)");
