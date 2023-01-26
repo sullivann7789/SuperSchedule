@@ -96,6 +96,7 @@ for (let i = 0; i < 24; i++) {
         console.log(returnstorage[i]);
         input[i].value = returnstorage[i];
         console.log(JSON.parse(storedinput));
+        
 
      // $(['data-time-row=11']) 
     }
